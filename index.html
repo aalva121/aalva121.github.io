@@ -483,7 +483,7 @@
       .hero-photo img {
         width: 280px;
         height: auto;
-        max-height: 320px
+        max-height: 320px;
         border-radius: 20px;
         object-fit: contain;
       }
@@ -518,36 +518,14 @@
   <!-- Hero Section -->
   <section id="hero">
     <div class="hero-bubble-1"></div>
-    <div class="file-gallery" aria-live="polite">
-      <div class="file-card" data-file="files/independent-study.pdf" data-title="Independent Study - Flood Risk">
-        <div class="file-thumb" aria-hidden="true">
-          <!-- simple PDF icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff69b4"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-        </div>
-        <div class="file-name">Independent Study (PDF)</div>
+    <div class="hero-content">
+      <div class="hero-photo">
+        <img src="images/headshot.JPG" alt="Alyssa Alvarez Professional Photo" class="profile-pic">
       </div>
-
-      <div class="file-card" data-file="files/social-media-case-study-1.pdf" data-title="Social Media — January">
-        <div class="file-thumb">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-        </div>
-        <div class="file-name">Social Media — January</div>
+      <div class="hero-text">
+        <h1>Alyssa Alvarez</h1>
+        <p class="hero-subtitle">Economics Graduate Student</p>
       </div>
-
-      <div class="file-card" data-file="files/social-media-case-study-2.pdf" data-title="Social Media — February">
-        <div class="file-thumb">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-        </div>
-        <div class="file-name">Social Media — February</div>
-      </div>
-
-      <div class="file-card" data-file="files/social-media-case-study-3.pdf" data-title="Social Media — March">
-        <div class="file-thumb">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-        </div>
-        <div class="file-name">Social Media — March</div>
-      </div>
-    </div>
     </div>
   </section>
 
@@ -587,18 +565,33 @@
         <h3>Flood Risk & Housing Prices Related to Wildfire Poximity</h3>
         <p><strong>Independent Study - Northern Arizona University</strong></p>
         <p>During my last semester at NAU, I conducted an econometric analysis examining the impact of flood risk on housing prices using GIS data and statistical modeling techniques. Towards the end of the semester, I presented my findings at the Undergraduate Research Symposium at NAU in front of fellow students and faculty members.</p>
-        <p><a href="pdfiles/isposter.pdf" target="_blank" rel="noopener">📄 Download full independent study (PDF)</a></p>
+        <div class="file-gallery">
+          <div class="file-card" data-file="files/isposter.pdf" data-title="Independent Study - Full Poster">
+            <div class="file-thumb" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff69b4"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+            </div>
+            <div class="file-name">Independent Study — Poster (PDF)</div>
+          </div>
+        </div>
       </div>
       <div class="project-card">
         <h3>Weekly Tuesdays Instagram Story Posts</h3>
         <p><strong>Peer Jacks Social Media Committee - Northern Arizona University</strong></p>
         <p>As part of the Peer Jacks Social Media Committee, I designed and posted weekly Instagram Stories with monthly themes that were catered towards student support and engagement. We wanted our Instagram posts to be helpful and engaging towards students so they often included fun, relevantthemes related to student welfare and life living as a college student in Flagstaff, Arizona.</p>
-        <p>Related files:</p>
-        <ul>
-          <li><a href="pdfiles/tastytues.pdf" target="_blank" rel="noopener">📄 Social media report — January (PDF)</a></li>
-          <li><a href="pdfiles/tipstues.pdf" target="_blank" rel="noopener">📄 Social media report — February (PDF)</a></li>
-          <li><a href="pdfiles/tricktues.pdf" target="_blank" rel="noopener">📄 Social media report — March (PDF)</a></li>
-        </ul>
+        <div class="file-gallery">
+          <div class="file-card" data-file="files/tastytues.pdf" data-title="Social Media — Tasty Tues (Jan)">
+            <div class="file-thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg></div>
+            <div class="file-name">Tasty Tues — January</div>
+          </div>
+          <div class="file-card" data-file="files/tipstues.pdf" data-title="Social Media — Tips Tues (Feb)">
+            <div class="file-thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg></div>
+            <div class="file-name">Tips Tues — February</div>
+          </div>
+          <div class="file-card" data-file="files/tricktues.pdf" data-title="Social Media — Trick Tues (Mar)">
+            <div class="file-thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg></div>
+            <div class="file-name">Trick Tues — March</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -614,7 +607,6 @@
     </div>
   </section>
 
-</body>
   <!-- Modal viewer for PDFs -->
   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-content">
@@ -667,4 +659,5 @@
       document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
     })();
   </script>
+</body>
 </html>
