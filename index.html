@@ -321,6 +321,106 @@
       line-height: 1.6;
     }
 
+    /* File gallery */
+    .file-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      width: 100%;
+      max-width: 1100px;
+      align-items: start;
+    }
+
+    .file-card {
+      background: linear-gradient(135deg, #fff5f9 0%, #fef0f8 100%);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,105,180,0.25);
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .file-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(255,105,180,0.12);
+    }
+
+    .file-thumb {
+      width: 100%;
+      height: 120px;
+      background: linear-gradient(135deg, #ffddeb 0%, #ffe8f4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+
+    .file-thumb img, .file-thumb svg {
+      width: 56px;
+      height: 56px;
+      opacity: 0.95;
+    }
+
+    .file-name {
+      font-size: 0.95rem;
+      color: #2d2d2d;
+      word-break: break-word;
+    }
+
+    /* Modal viewer */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(17,17,17,0.6);
+      z-index: 9999;
+      padding: 2rem;
+    }
+
+    .modal.open { display: flex; }
+
+    .modal-content {
+      width: 90%;
+      max-width: 1000px;
+      height: 80vh;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(90deg, #ffeff6, #fff7fb);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .modal-toolbar .title { font-weight: 600; color: #1db679; }
+
+    .modal-iframe {
+      flex: 1 1 auto;
+      border: none;
+      width: 100%;
+    }
+
+    .download-button {
+      background: #ff69b4;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     /* Contact Section */
     #contact {
       background: linear-gradient(135deg, #f0f9f7 0%, #fff5f9 100%);
@@ -418,25 +518,36 @@
   <!-- Hero Section -->
   <section id="hero">
     <div class="hero-bubble-1"></div>
-    <div class="hero-bubble-2"></div>
-    <div class="hero-bubble-3"></div>
-    <div class="hero-content">
-      <div class="hero-photo">
-        <img src="images/headshot.JPG" alt="Alyssa Alvarez Professional Photo" class="profile-pic">
+    <div class="file-gallery" aria-live="polite">
+      <div class="file-card" data-file="files/independent-study.pdf" data-title="Independent Study - Flood Risk">
+        <div class="file-thumb" aria-hidden="true">
+          <!-- simple PDF icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff69b4"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+        </div>
+        <div class="file-name">Independent Study (PDF)</div>
       </div>
-      <div class="hero-text">
-        <h1>Alyssa Alvarez</h1>
-        <p class="hero-subtitle">Economics Graduate Student</p>
+
+      <div class="file-card" data-file="files/social-media-case-study-1.pdf" data-title="Social Media — January">
+        <div class="file-thumb">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+        </div>
+        <div class="file-name">Social Media — January</div>
+      </div>
+
+      <div class="file-card" data-file="files/social-media-case-study-2.pdf" data-title="Social Media — February">
+        <div class="file-thumb">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+        </div>
+        <div class="file-name">Social Media — February</div>
+      </div>
+
+      <div class="file-card" data-file="files/social-media-case-study-3.pdf" data-title="Social Media — March">
+        <div class="file-thumb">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+        </div>
+        <div class="file-name">Social Media — March</div>
       </div>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="content-box">
-      <p>Hello! I'm Alyssa Alvarez, a graduate student at Arizona State University pursuing a Master's degree in Economics. I'm passionate about leveraging economic research and data analysis to address environmental sustainability challenges.</p>
-      <p>My academic journey began at Northern Arizona University, where I earned a Bachelor's in Business Economics and developed a strong foundation in economic theory and quantitative analysis. Now at ASU, I'm expanding my expertise in econometrics and data analysis to drive impactful economic research and policy solutions.</p>
     </div>
   </section>
 
@@ -504,4 +615,56 @@
   </section>
 
 </body>
+  <!-- Modal viewer for PDFs -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-toolbar">
+        <div class="title" id="modalTitle">File Preview</div>
+        <div>
+          <a id="downloadLink" class="download-button" href="#" download>Download</a>
+          <button id="closeModal" aria-label="Close" style="margin-left:0.75rem;background:transparent;border:none;font-size:1.6rem;">✕</button>
+        </div>
+      </div>
+      <iframe id="pdfViewer" class="modal-iframe" src="" title="PDF Viewer"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Gallery -> modal PDF viewer
+    (function(){
+      const cards = document.querySelectorAll('.file-card');
+      const modal = document.getElementById('modal');
+      const iframe = document.getElementById('pdfViewer');
+      const titleEl = document.getElementById('modalTitle');
+      const downloadLink = document.getElementById('downloadLink');
+      const closeBtn = document.getElementById('closeModal');
+
+      function openModal(file, title){
+        iframe.src = file;
+        titleEl.textContent = title || 'File Preview';
+        downloadLink.href = file;
+        downloadLink.setAttribute('download', file.split('/').pop());
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+      }
+
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        iframe.src = '';
+      }
+
+      cards.forEach(c => {
+        c.addEventListener('click', () => {
+          const file = c.getAttribute('data-file');
+          const title = c.getAttribute('data-title');
+          openModal(file, title);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+    })();
+  </script>
 </html>
