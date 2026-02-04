@@ -566,11 +566,11 @@
         <p><strong>Independent Study - Northern Arizona University</strong></p>
         <p>During my last semester at NAU, I conducted an econometric analysis examining the impact of flood risk on housing prices using GIS data and statistical modeling techniques. Towards the end of the semester, I presented my findings at the Undergraduate Research Symposium at NAU in front of fellow students and faculty members.</p>
         <div class="file-gallery">
-          <div class="file-card" data-file="files/isposter.pdf" data-title="Independent Study - Full Poster">
+          <div class="file-card" data-file="pdfiles/isposter.pdf" data-title="Post Wildfire Effects on Flagstaff Property Values">
             <div class="file-thumb" aria-hidden="true">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff69b4"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
             </div>
-            <div class="file-name">Independent Study — Poster (PDF)</div>
+            <div class="file-name">Post Wildfire Effects on Flagstaff Property Values</div>
           </div>
         </div>
       </div>
@@ -579,17 +579,17 @@
         <p><strong>Peer Jacks Social Media Committee - Northern Arizona University</strong></p>
         <p>As part of the Peer Jacks Social Media Committee, I designed and posted weekly Instagram Stories with monthly themes that were catered towards student support and engagement. We wanted our Instagram posts to be helpful and engaging towards students so they often included fun, relevantthemes related to student welfare and life living as a college student in Flagstaff, Arizona.</p>
         <div class="file-gallery">
-          <div class="file-card" data-file="files/tastytues.pdf" data-title="Social Media — Tasty Tues (Jan)">
+          <div class="file-card" data-file="pdfiles/tastytues.pdf" data-title="Tasty Tuesdays">
             <div class="file-thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg></div>
-            <div class="file-name">Tasty Tues — January</div>
+            <div class="file-name">Tasty Tuesdays</div>
           </div>
-          <div class="file-card" data-file="files/tipstues.pdf" data-title="Social Media — Tips Tues (Feb)">
+          <div class="file-card" data-file="pdfiles/tipstues.pdf" data-title="Tips & Tricks Tuesdays">
             <div class="file-thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg></div>
-            <div class="file-name">Tips Tues — February</div>
+            <div class="file-name">Tips & Tricks Tuesdays</div>
           </div>
-          <div class="file-card" data-file="files/tricktues.pdf" data-title="Social Media — Trick Tues (Mar)">
+          <div class="file-card" data-file="pdfiles/tricktues.pdf" data-title="Trick or Treat Tuesdays">
             <div class="file-thumb"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1db679"><path d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg></div>
-            <div class="file-name">Trick Tues — March</div>
+            <div class="file-name">Trick or Treat Tuesdays</div>
           </div>
         </div>
       </div>
@@ -620,8 +620,43 @@
       <iframe id="pdfViewer" class="modal-iframe" src="" title="PDF Viewer"></iframe>
     </div>
   </div>
+    <!-- PDF.js for thumbnail rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        if(!window.pdfjsLib) return;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+        const cards = document.querySelectorAll('.file-card');
+        cards.forEach(c => {
+          const file = c.getAttribute('data-file');
+          const thumb = c.querySelector('.file-thumb');
+          // try to load first page and render to canvas
+          pdfjsLib.getDocument(file).promise.then(pdf => {
+            return pdf.getPage(1);
+          }).then(page => {
+            const scale = 1.2;
+            const viewport = page.getViewport({scale});
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            const renderContext = { canvasContext: context, viewport: viewport };
+            return page.render(renderContext).promise.then(()=>{
+              // scale canvas to thumb size
+              canvas.style.width = '100%';
+              canvas.style.height = '100%';
+              thumb.innerHTML = '';
+              thumb.appendChild(canvas);
+            });
+          }).catch(err => {
+            // leave default icon if PDF couldn't be loaded/rendered
+            console.warn('Thumbnail render failed for', file, err);
+          });
+        });
+      });
+    </script>
 
-  <script>
+    <script>
     // Gallery -> modal PDF viewer
     (function(){
       const cards = document.querySelectorAll('.file-card');
