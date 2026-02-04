@@ -66,17 +66,48 @@
 
     /* Hero Section */
     #hero {
-      background: linear-gradient(135deg, #fff5f9 0%, #f0f9f7 100%);
+      background: linear-gradient(180deg, #87ceeb 0%, #e8d5b7 35%, #ffd700 40%, #90ee90 45%, #228b22 100%);
+      position: relative;
       text-align: center;
       justify-content: center;
       flex-direction: column;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 5%;
+      right: 10%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #00ff00, #006400);
+      border-radius: 50%;
+      filter: blur(30px);
+      opacity: 0.6;
+      z-index: 1;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      top: 15%;
+      left: 15%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(ellipse, rgba(255, 192, 203, 0.8), transparent);
+      border-radius: 50%;
+      filter: blur(40px);
+      z-index: 1;
     }
 
     .hero-content {
       display: flex;
       align-items: center;
       gap: 3rem;
-      margin-bottom: 2rem;
+      margin-bottom: 0;
+      position: relative;
+      z-index: 10;
     }
 
     .hero-photo {
@@ -85,11 +116,13 @@
 
     .hero-photo img {
       width: 250px;
-      height: 250px;
+      height: 320px;
       border-radius: 20px;
-      border: 4px solid #ff69b4;
-      object-fit: cover;
-      box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+      object-fit: contain;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      background: white;
+      position: relative;
+      z-index: 10;
     }
 
     .hero-text {
@@ -97,13 +130,15 @@
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
+      position: relative;
+      z-index: 10;
     }
 
     #hero h1 {
       font-size: 3.5rem;
       color: #1db679;
       margin-bottom: 0;
-      text-shadow: 0 0 20px rgba(255, 192, 203, 0.3);
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
       font-weight: 700;
       letter-spacing: 1px;
     }
@@ -113,14 +148,7 @@
       color: #ff69b4;
       margin-bottom: 0;
       font-weight: 500;
-    }
-
-    .hero-welcome {
-      font-size: 2.5rem;
-      color: #1db679;
-      margin-top: 2rem;
-      font-weight: 700;
-      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     #hero p {
@@ -365,7 +393,6 @@
         <p class="hero-subtitle">Economics Graduate Student</p>
       </div>
     </div>
-    <div class="hero-welcome">Welcome!</div>
   </section>
 
   <!-- About Section -->
