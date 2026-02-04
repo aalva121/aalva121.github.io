@@ -66,7 +66,7 @@
 
     /* Hero Section */
     #hero {
-      background: linear-gradient(180deg, #87ceeb 0%, #e8d5b7 35%, #ffd700 40%, #90ee90 45%, #228b22 100%);
+      background: linear-gradient(135deg, #ffc0e8 0%, #ffb3e6 50%, #ffc0e8 100%);
       position: relative;
       text-align: center;
       justify-content: center;
@@ -74,31 +74,62 @@
       overflow: hidden;
     }
 
+    /* Bubble decorations */
     #hero::before {
       content: '';
       position: absolute;
-      top: 5%;
-      right: 10%;
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, #00ff00, #006400);
+      top: 10%;
+      right: 5%;
+      width: 120px;
+      height: 120px;
+      border: 3px solid rgba(255, 105, 180, 0.4);
       border-radius: 50%;
-      filter: blur(30px);
-      opacity: 0.6;
-      z-index: 1;
+      z-index: 2;
     }
 
     #hero::after {
       content: '';
       position: absolute;
-      top: 15%;
-      left: 15%;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(ellipse, rgba(255, 192, 203, 0.8), transparent);
+      bottom: 15%;
+      left: 8%;
+      width: 80px;
+      height: 80px;
+      border: 2px solid rgba(255, 105, 180, 0.3);
       border-radius: 50%;
-      filter: blur(40px);
-      z-index: 1;
+      z-index: 2;
+    }
+
+    .hero-bubble-1 {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border: 2px solid rgba(255, 192, 203, 0.5);
+      border-radius: 50%;
+      top: 20%;
+      left: 10%;
+      z-index: 2;
+    }
+
+    .hero-bubble-2 {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border: 2px solid rgba(255, 105, 180, 0.3);
+      border-radius: 50%;
+      bottom: 25%;
+      right: 12%;
+      z-index: 2;
+    }
+
+    .hero-bubble-3 {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border: 3px solid rgba(255, 192, 203, 0.3);
+      border-radius: 50%;
+      top: 50%;
+      right: 5%;
+      z-index: 2;
     }
 
     .hero-content {
@@ -115,12 +146,11 @@
     }
 
     .hero-photo img {
-      width: 250px;
-      height: 320px;
-      border-radius: 20px;
-      object-fit: contain;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      background: white;
+      width: 280px;
+      height: 280px;
+      border-radius: 25px;
+      object-fit: cover;
+      box-shadow: 0 10px 40px rgba(255, 105, 180, 0.2);
       position: relative;
       z-index: 10;
     }
@@ -384,6 +414,9 @@
 
   <!-- Hero Section -->
   <section id="hero">
+    <div class="hero-bubble-1"></div>
+    <div class="hero-bubble-2"></div>
+    <div class="hero-bubble-3"></div>
     <div class="hero-content">
       <div class="hero-photo">
         <img src="images/headshot.JPG" alt="Alyssa Alvarez Professional Photo" class="profile-pic">
